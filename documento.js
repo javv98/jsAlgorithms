@@ -68,8 +68,8 @@ let shift = 3;
 let encrypted = "";
 let ABC = "abcdefghijklmnopqrstuvwxyz";
 
-for (let h = 0; h < message.length; h++) {
-    let newLetterNumber = ABC.indexOf(message[h])+ shift;
+for (let i = 0; i < message.length; i++) {
+    let newLetterNumber = ABC.indexOf(message[i])+ shift;
     if (newLetterNumber >= ABC.length) {
         encrypted = encrypted + ABC[newLetterNumber - ABC.length]
     } else {
@@ -95,3 +95,66 @@ for (let r = word.length - 1; r >= 0; r--) {
 let isPalindrome = word === wordBackwards
 
 console.log(isPalindrome); // Expected output: true
+
+// Ejercicio "Sumar dígitos"
+
+let num = 1234;
+ 
+// Your code here
+
+let numString = '' + num
+
+let digitSum = 0;
+
+for (let i = 0; i < numString.length; i++) {
+    let indNum = +numString[i];
+    digitSum = digitSum + indNum;
+}
+ 
+console.log(digitSum); // Expected output: 10
+
+// Ejercicio "Pirámide centrada"
+
+let n3 = 5;
+ 
+// Your code here
+
+for (let i = 0; i < n3*2; i++) {
+    if (i % 2 === 0) {
+        continue
+    } else {
+    let asterisco = "*".repeat(i)
+    let blankSpace = " ".repeat((n3*2 - i)/2)
+    let pyramid = blankSpace + asterisco + blankSpace
+    console.log(pyramid)
+    }
+}
+
+// Ejercicio "Contador de consonantes"
+
+let text2 = 'Ironhack is amazing';
+ 
+// Your code here
+
+let consonants = 0
+
+for (let i = 0; i < text2.length; i++) {
+    let char = text2[i]
+    if (!("AEIOUaeiou ".includes(char))) {
+        consonants++
+}
+}
+ 
+console.log(consonants); // Expected output: 10
+
+// Ejercicio "Contador de palabras" 
+
+let sentence = 'I love learning JavaScript at Ironhack';
+ 
+// Your code here
+
+let wordCount = 0
+
+for (let i = 0; i < sentence.length; i++) {}
+ 
+console.log(wordCount); // Expected output: 7
