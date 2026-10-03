@@ -140,7 +140,7 @@ let consonants = 0
 
 for (let i = 0; i < text2.length; i++) {
     let char = text2[i]
-    if (!("AEIOUaeiou ".includes(char))) {
+    if (!("AEIOUaeiou ".includes(char))) { // Le he añadido un espacio para que no los cuente 
         consonants++
 }
 }
@@ -153,8 +153,72 @@ let sentence = 'I love learning JavaScript at Ironhack';
  
 // Your code here
 
-let wordCount = 0
+let wordCount = 1 // Empezamos en 1 porque siempre hay un espacio menos que palabras
 
-for (let i = 0; i < sentence.length; i++) {}
+for (let i = 0; i < sentence.length; i++) {
+    let char = sentence[i]
+    if (char === " ") {
+        wordCount++
+    }
+
+}
  
-console.log(wordCount); // Expected output: 7
+console.log(wordCount); // Expected output: 7 // <-- Está mal esta indicación del lab
+
+// Ejercicio "Capitalizar palabras"
+
+let sentence2 = 'i love javascript';
+ 
+// Your code here
+
+let capitalized = ""
+
+for (let i = 0; i < sentence2.length; i++) {
+    let char = sentence2[i];
+    if (i === 0) {
+        capitalized = capitalized + char.toUpperCase()
+    } else if (char === " ") {
+        capitalized = capitalized + char
+        i++;
+        char = sentence2[i];
+        capitalized = capitalized + char.toUpperCase()
+    } else {
+        capitalized = capitalized + char
+    }
+}
+ 
+console.log(capitalized); // Expected output: 'Hello Cruel World'
+
+// Ejercicio "Edificios con vistas al mar"
+
+let buildings = '3_7_8_3_6_1';
+ 
+// Your code here
+
+let seaViews = 0 // El primero siempre tendrá vistas
+let buildingsNew = ""
+let evaluadorMenor = 0
+
+for (let i = 0; i < buildings.length; i++) {
+    let num = buildings[i]
+    if (num !== "_") {
+        buildingsNew = buildingsNew + num;
+    }
+}
+
+for (let i = buildingsNew.length - 1; i >= 0; i--) {
+    let num = buildingsNew[i]
+    let restoNumDerecha = buildingsNew.slice(i + 1)
+    evaluadorMenor = 0
+    for (let j = 0; j < restoNumDerecha.length; j++) {
+        let num2 = restoNumDerecha[j]
+        if (num <= num2) {
+            evaluadorMenor++
+        }
+    }
+    if (evaluadorMenor === 0) {
+        seaViews++
+    }
+}
+ 
+console.log(seaViews); // Expected output: 3
